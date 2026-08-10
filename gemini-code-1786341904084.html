@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= title %></title>
+</head>
+<body>
+    <h1>User List</h1>
+    <hr>
+
+    <% if (users.length === 0) { %>
+        <p>No users found in the system.</p>
+    <% } else { %>
+        <ol>
+            <% users.forEach(user => { %>
+                <li>
+                    <strong><%= user.name %></strong> (<%= user.email %>) - <%= user.age %> years
+                </li>
+            <% }); %>
+        </ol>
+        <p><strong>Total users:</strong> <%= users.length %></p>
+    <% } %>
+
+    <br>
+    <a href="/register">Register New User</a>
+</body>
+</html>
