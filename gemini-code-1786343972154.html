@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Protected Dashboard</title>
+</head>
+<body>
+    <h2>Dashboard</h2>
+    <p>Welcome, <b><%= user %></b>!</p>
+    <p>Your session ID: <code><%= sessionId %></code></p>
+    <p>You have visited this page <b><%= visitCount %></b> time(s) during this session.</p>
+
+    <hr>
+    <a href="/logout">Logout</a> | <a href="/">Home</a>
+</body>
+</html>
