@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Item Management SPA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Item Management</h1>
+
+        <!-- SPA Form -->
+        <form id="itemForm">
+            <input type="hidden" id="itemId">
+
+            <div class="form-group">
+                <label for="name">Item Name*</label>
+                <input type="text" id="name" required placeholder="Enter item name">
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea id="description" placeholder="Enter item description"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="price">Price ($)*</label>
+                <input type="number" id="price" step="0.01" required placeholder="0.00">
+            </div>
+
+            <div class="form-group checkbox-group">
+                <input type="checkbox" id="inStock" checked>
+                <label for="inStock">In Stock</label>
+            </div>
+
+            <div class="btn-group">
+                <button type="submit" id="submitBtn">Add Item</button>
+                <button type="button" id="cancelBtn" class="btn-cancel" style="display:none;">Cancel</button>
+            </div>
+        </form>
+
+        <hr>
+
+        <h2>Item List</h2>
+        <div id="itemList" class="item-list"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
