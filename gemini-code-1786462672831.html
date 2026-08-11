@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ReactJS Fundamentals Lab</title>
+  
+  <!-- React 18 CDN Scripts -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel Compiler for JSX -->
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      line-height: 1.6;
+    }
+    .container {
+      border: 1px solid #ccc;
+      padding: 20px;
+      border-radius: 8px;
+      max-width: 600px;
+    }
+    .section {
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #bbb;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Root Container for React -->
+  <div id="root"></div>
+
+  <!-- React Code with Babel Transpilation -->
+  <script type="text/babel">
+    // ==========================================
+    // Part (a): Rendering HTML to a Web Page
+    // ==========================================
+
+    // Example 1: Without JSX using React.createElement()
+    const plainElement = React.createElement(
+      "h3",
+      { style: { color: "#555" } },
+      "Part (a): HTML rendered without JSX (React.createElement)"
+    );
+
+    // ==========================================
+    // Part (b): Writing Markup with JSX
+    // ==========================================
+    const userName = "React Developer";
+    const today = new Date().toLocaleDateString('en-US', { weekday: 'long' });
+
+    const jsxElement = (
+      <div className="section">
+        <h3>Part (b): JSX Expressions & Attributes</h3>
+        <p style={{ color: "darkblue", fontWeight: "bold" }}>
+          Welcome, {userName}!
+        </p>
+        <p>Today is {today}.</p>
+        <p>Calculation evaluation: 2 + 2 = {2 + 2}</p>
+      </div>
+    );
+
+    // ==========================================
+    // Part (c): Create and Nest Components
+    // ==========================================
+
+    // 1. Function Component receiving props
+    function Greeting(props) {
+      return (
+        <h4 style={{ color: "#2c3e50", margin: "5px 0" }}>
+          Greeting from function component: Hello, {props.name}!
+        </h4>
+      );
+    }
+
+    // 2. Class Component extending React.Component
+    class WelcomeMessage extends React.Component {
+      render() {
+        return (
+          <h4 style={{ color: "green", marginTop: "15px" }}>
+            Welcome from class component: React is awesome!
+          </h4>
+        );
+      }
+    }
+
+    // 3. Parent App Component nesting both components
+    function App() {
+      return (
+        <div className="container">
+          <h2>ReactJS Building Blocks Demo</h2>
+          
+          {/* Rendering Part (a) element */}
+          <div className="section">
+            {plainElement}
+          </div>
+
+          {/* Rendering Part (b) element */}
+          {jsxElement}
+
+          {/* Rendering Part (c) nested components with props */}
+          <div className="section">
+            <h3>Part (c): Component Architecture</h3>
+            <Greeting name="Alice" />
+            <Greeting name="Bob" />
+            <WelcomeMessage />
+          </div>
+        </div>
+      );
+    }
+
+    // ==========================================
+    // DOM Rendering (React 18 standard)
+    // ==========================================
+    const root = ReactDOM.createRoot(document.getElementById("root"));
+    root.render(<App />);
+  </script>
+
+</body>
+</html>
